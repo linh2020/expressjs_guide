@@ -1,1 +1,12 @@
-GET http://localhost:5000/books
+
+GET http://localhost:5000/api/v1/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTc4MzIwMDQsImV4cCI6MTcxNzgzMjAzNH0.3UgSdN0Oh8RgSWuptCdgU-3n2qxJ34fpV6cOMKRic_o
+
+###
+POST http://localhost:5000/api/v1/auth/login
+
+{
+    "username" : "david"
+}
+
+###
