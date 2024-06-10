@@ -1,0 +1,22 @@
+{
+  "name": "expressjs_jwt-auth-refresh-token",
+  "version": "1.0.0",
+  "description": "JWT Authentication With Refresh Tokens",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Linh Huynh",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
