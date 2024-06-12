@@ -8,6 +8,9 @@ const app = express();
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 
+const subRouter = require("./routes/subdir");
+const rootRouter = require("./routes/root");
+
 const PORT = process.env.PORT || 5000;
 
 // custom middleware
@@ -33,27 +36,16 @@ app.use(cors(corsOptions));
 // parsing
 app.use(express.urlencoded({ extended: false })); // parse form data
 app.use(express.json()); // parse json
-app.use(express.static(path.join(__dirname, "/public"))); // serve static files
 
-app.get("^/$|/index(.html)?", (req, res) => {
-  //   res.status(200).json({ msg: "JWT Authentication With Refresh Tokens" });
-  //   res.status(200).sendFile("./views/index.html", { root: __dirname });
-  res.status(200).sendFile(path.join(__dirname, "views", "index.html"));
-});
+// serve static files
+app.use("/", express.static(path.join(__dirname, "/public")));
+app.use("/subdir", express.static(path.join(__dirname, "/public")));
 
-app.get("^/$|/new-page(.html)?", (req, res) => {
-  //   res.status(200).json({ msg: "JWT Authentication With Refresh Tokens" });
-  //   res.status(200).sendFile("./views/index.html", { root: __dirname });
-  res.status(200).sendFile(path.join(__dirname, "views", "new-page.html"));
-});
+// Routes
+app.use("/", rootRouter);
+app.use("/subdir", subRouter);
 
-app.get("^/$|/old-page(.html)?", (req, res) => {
-  //   res.status(200).json({ msg: "JWT Authentication With Refresh Tokens" });
-  //   res.status(200).sendFile("./views/index.html", { root: __dirname });
-  res.redirect(301, "/new-page.html");
-});
-
-app.get("/*", (req, res) => {
+app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
