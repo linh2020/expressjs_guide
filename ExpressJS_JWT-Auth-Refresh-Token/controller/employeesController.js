@@ -2,8 +2,9 @@ const { v4: uuid } = require("uuid");
 
 const data = {
   employees: [],
-  setEmployees: function (employee) {
+  setEmployees: function (newEmployee) {
     this.employees = employee;
+    // this.employees = [...this.employees, newEmployee];
   },
 };
 // console.log(data);
@@ -26,6 +27,7 @@ const createNewEmployee = (req, res) => {
     });
 
   data.setEmployees([...data.employees, newEmployee]);
+  // data.setEmployees(newEmployee);
   res.status(200).json({ status: "success", employees: data.employees });
 };
 
