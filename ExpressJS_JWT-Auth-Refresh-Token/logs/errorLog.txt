@@ -4,3 +4,4 @@
 20240611	19:04:02	64573f25-48fd-4b28-9d79-03ce8704126f	Error	ENOENT: no such file or directory, stat 'L:\Projects\ExpressJS\ExpressJS_Guide\ExpressJS_JWT-Auth-Refresh-Token\routes\views\index.html'
 20240611	19:04:24	e9e34473-f02f-4c6e-9597-c10d546fea30	Error	ENOENT: no such file or directory, stat 'L:\Projects\ExpressJS\ExpressJS_Guide\ExpressJS_JWT-Auth-Refresh-Token\routes\views\index.html'
 20240611	19:04:57	6a228663-694f-4e2c-b508-5bc9cd496482	Error	ENOENT: no such file or directory, stat 'L:\Projects\ExpressJS\ExpressJS_Guide\ExpressJS_JWT-Auth-Refresh-Token\routes\views\index.html'
+20240612	20:46:49	58cb2174-c04c-4a81-bf1b-8ab1397f6483	SyntaxError	Expected property name or '}' in JSON at position 7

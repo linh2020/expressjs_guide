@@ -10,6 +10,7 @@ const errorHandler = require("./middleware/errorHandler");
 
 const subRouter = require("./routes/subdir");
 const rootRouter = require("./routes/root");
+const employeesRouter = require("./routes/api/employees");
 
 const PORT = process.env.PORT || 5000;
 
@@ -44,6 +45,7 @@ app.use("/subdir", express.static(path.join(__dirname, "/public")));
 // Routes
 app.use("/", rootRouter);
 app.use("/subdir", subRouter);
+app.use("/employee", employeesRouter);
 
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
