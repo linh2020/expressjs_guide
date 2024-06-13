@@ -5,3 +5,14 @@
 20240611	19:04:24	e9e34473-f02f-4c6e-9597-c10d546fea30	Error	ENOENT: no such file or directory, stat 'L:\Projects\ExpressJS\ExpressJS_Guide\ExpressJS_JWT-Auth-Refresh-Token\routes\views\index.html'
 20240611	19:04:57	6a228663-694f-4e2c-b508-5bc9cd496482	Error	ENOENT: no such file or directory, stat 'L:\Projects\ExpressJS\ExpressJS_Guide\ExpressJS_JWT-Auth-Refresh-Token\routes\views\index.html'
 20240612	20:46:49	58cb2174-c04c-4a81-bf1b-8ab1397f6483	SyntaxError	Expected property name or '}' in JSON at position 7
+20240613	01:03:53	f644f19b-ec07-4946-8a0e-88a2c2cff302	TypeError	data.employees is not iterable
+20240613	01:03:59	5e722d73-124b-4129-b6ce-69e84b85fa6e	TypeError	data.employees is not iterable
+20240613	01:04:42	c96c3ca6-21ef-4265-b894-0faf10190326	TypeError	data.employees is not iterable
+20240613	01:05:31	a6e6695e-6eb9-4a2f-9fe7-5bb70f4b1690	TypeError	(intermediate value)(intermediate value)(intermediate value) is not iterable
+20240613	01:05:34	7c95b2e7-1e76-4989-91ad-170ef053db3e	TypeError	(intermediate value)(intermediate value)(intermediate value) is not iterable
+20240613	01:06:33	115e455d-b62e-4e0d-ab08-a235f9100351	TypeError	data.employees is not iterable
+20240613	01:06:34	7072288e-0fd8-45fd-a62b-76f4eb5823e9	TypeError	data.employees is not iterable
+20240613	01:07:21	8b83dd87-ab7d-4748-a3ce-306cea079adf	TypeError	data.employees is not iterable
+20240613	01:07:22	990ded9d-7cdb-4fd5-a312-3030d50d09bb	TypeError	data.employees is not iterable
+20240613	01:08:43	996a0740-8184-4172-ab97-563c0f71eb5e	TypeError	data.employees is not iterable
+20240613	01:11:31	a656893c-b786-4dfe-ab05-fd62cc3b75b5	TypeError	data.employees is not iterable

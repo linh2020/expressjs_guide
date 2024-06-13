@@ -17,8 +17,8 @@ GET http://localhost:5000/employee
 POST http://localhost:5000/employee
 Content-Type: application/json
 
-{   "id": 2,
-    "firstName":"Linh",
+{   
+    "firstName":"David",
     "lastName":"Huynh"
 }
 

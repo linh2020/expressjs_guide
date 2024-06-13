@@ -3,12 +3,13 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
+
 const app = express();
 
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 
-const subRouter = require("./routes/subdir");
 const rootRouter = require("./routes/root");
 const employeesRouter = require("./routes/api/employees");
 
@@ -18,20 +19,6 @@ const PORT = process.env.PORT || 5000;
 app.use(logger);
 
 // Cross Origin Resource Sharing
-const whitelist = ["http://localhost:5000", "http://localhost:3000"]; // assuming front-end application is running on localhost port 3000
-const corsOptions = {
-  origin: (origin, callback) => {
-    // if (!origin || origin === "http://localhost:5000") {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      // [not]origin must be removed on production mode
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
-
 app.use(cors(corsOptions));
 
 // parsing
@@ -40,11 +27,9 @@ app.use(express.json()); // parse json
 
 // serve static files
 app.use("/", express.static(path.join(__dirname, "/public")));
-app.use("/subdir", express.static(path.join(__dirname, "/public")));
 
 // Routes
 app.use("/", rootRouter);
-app.use("/subdir", subRouter);
 app.use("/employee", employeesRouter);
 
 app.all("*", (req, res) => {
