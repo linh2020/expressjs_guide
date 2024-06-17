@@ -252,3 +252,9 @@
 20240613	11:41:08	edcf7cc4-e3b7-4bc4-ae93-a5c86551d731	DELETE	undefined	/employee/5fd09f26-cafb-4c7a-bc41-5cd8911ca3d2
 20240616	21:30:23	94fbee8a-fa40-4472-871d-dfe46721e557	GET	undefined	/
 20240616	21:30:23	641ae195-ff01-4f78-8577-71b9b63d6bcf	GET	undefined	/favicon.ico
+20240616	21:33:57	6b752637-aa2c-4108-bdba-a2098ae4f69e	GET	undefined	/employee/432432
+20240616	21:33:58	7b8dae43-d507-43c1-9c6d-9cfe25c00fb0	GET	undefined	/employee/432432
+20240616	21:34:25	af087ea3-066e-4ab4-9a2a-0d2bec19a63e	GET	undefined	/employee
+20240616	21:34:26	abfc80ef-b637-476b-a1ea-be7018eee1cc	GET	undefined	/employee
+20240616	21:34:26	038e79c3-5591-498f-be9c-5bf66a020356	GET	undefined	/employee
+20240616	21:34:26	2be5cfbe-1a0a-4500-907d-3551100560a1	GET	undefined	/employee

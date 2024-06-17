@@ -10,7 +10,7 @@ const data = {
 // console.log(data);
 
 const getAllEmployees = (req, res) => {
-  res.status(200).json(data);
+  res.status(200).json(data.employees);
 };
 
 const createNewEmployee = (req, res) => {
