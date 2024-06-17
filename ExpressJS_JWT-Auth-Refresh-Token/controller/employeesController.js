@@ -55,7 +55,7 @@ const updateEmployee = (req, res) => {
 
 const deleteEmployee = (req, res) => {
   const foundEmployee = data.employees.find(
-    (employee) => employee.id === req.p
+    (employee) => employee.id === req.body.id
   );
 
   if (!foundEmployee)
@@ -72,9 +72,13 @@ const deleteEmployee = (req, res) => {
 };
 
 const getEmployee = (req, res) => {
-  res.status(200).json({
-    id: req.params.id,
-  });
+  const foundEmployee = data.employees.find((emp) => emp.id === req.params.id);
+  if (!foundEmployee)
+    return res.status(400).json({
+      message: `Employee ID ${req.body.id} not found.`,
+    });
+
+  res.status(200).json({ status: "Success", employees: foundEmployee });
 };
 
 module.exports = {
