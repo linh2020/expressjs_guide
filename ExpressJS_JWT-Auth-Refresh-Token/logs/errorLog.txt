@@ -29,3 +29,14 @@
 20240613	11:34:46	60b79d41-efa3-4d1a-b9f7-dc2e6c378a3c	ReferenceError	employee is not defined
 20240613	11:34:46	e296a234-5969-49bf-9611-7969a06dc701	ReferenceError	employee is not defined
 20240613	11:35:23	543b614a-82a7-4649-a7cb-74ef7184456d	ReferenceError	employee is not defined
+20240616	22:17:30	e37e25bf-1a62-4c05-9a25-4cb9dd9d3234	SyntaxError	Expected double-quoted property name in JSON at position 79
+20240616	22:18:56	6c85a538-8a3d-4661-a953-fb9d38526a07	SyntaxError	Expected double-quoted property name in JSON at position 79
+20240616	22:19:42	77952842-7bb4-495c-afea-02b6703719ea	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:20:38	e03e3c70-2414-47cd-ae1f-e4472b2b99f7	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:20:50	fa306d74-2eaa-4c9f-8cc2-a52f27387b78	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:21:33	fb528a03-c7f6-45c1-a3d4-f1287a25a827	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:21:34	49618efa-afe1-4bcf-8019-475bb6e98602	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:23:06	674f6f82-087d-4e48-9538-3f440a75ea87	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:23:07	2ecee95c-4b0c-40be-a46f-bd0e8548bef0	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:23:45	457c19c8-41d7-48cb-86f7-79922207768e	SyntaxError	Expected double-quoted property name in JSON at position 80
+20240616	22:39:06	5acbbf98-c993-400a-b021-16e5b901af5b	SyntaxError	Expected double-quoted property name in JSON at position 80

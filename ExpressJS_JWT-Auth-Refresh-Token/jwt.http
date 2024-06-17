@@ -23,6 +23,15 @@ Content-Type: application/json
 }
 
 ### Authentication Server
+PUT http://localhost:5000/employee
+Content-Type: application/json
+
+{
+    "id" : "0954a574-6dd1-44c3-a6ba-cf9ec335feb0",
+    "firstName":"Linh",
+}
+
+### Authentication Server
 GET http://localhost:5000/employee/432432
 
 ### Authentication Server
@@ -32,6 +41,8 @@ Content-Type: application/json
 {
     "id": 2
 }
+
+
 
 ### Authentication Server
 DELETE http://localhost:5000/employee/5fd09f26-cafb-4c7a-bc41-5cd8911ca3d2
