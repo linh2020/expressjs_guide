@@ -33,3 +33,6 @@ Content-Type: application/json
     "id": 2
 }
 
+### Authentication Server
+DELETE http://localhost:5000/employee/5fd09f26-cafb-4c7a-bc41-5cd8911ca3d2
+

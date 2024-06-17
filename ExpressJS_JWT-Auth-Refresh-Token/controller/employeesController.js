@@ -3,7 +3,7 @@ const { v4: uuid } = require("uuid");
 const data = {
   employees: [],
   setEmployees: function (newEmployee) {
-    this.employees = employee;
+    this.employees = newEmployee;
     // this.employees = [...this.employees, newEmployee];
   },
 };
@@ -28,7 +28,7 @@ const createNewEmployee = (req, res) => {
 
   data.setEmployees([...data.employees, newEmployee]);
   // data.setEmployees(newEmployee);
-  res.status(200).json({ status: "success", employees: data.employees });
+  res.status(201).json({ status: "success", employees: data.employees });
 };
 
 const updateEmployee = (req, res) => {
@@ -40,9 +40,21 @@ const updateEmployee = (req, res) => {
 };
 
 const deleteEmployee = (req, res) => {
-  res.status(200).json({
-    id: req.body.id,
-  });
+  const foundEmployee = data.employees.find(
+    (employee) => employee.id === req.p
+  );
+
+  if (!foundEmployee)
+    return res
+      .status(400)
+      .json({ message: `Employee ID ${req.body.id} not found.` });
+
+  const filteredEmployees = data.employees.filter(
+    (employee) => employee.id !== req.body.id
+  );
+
+  data.setEmployees(filteredEmployees);
+  res.status(200).json({ data });
 };
 
 const getEmployee = (req, res) => {
