@@ -1,11 +1,12 @@
 // Cross Origin Resource Sharing
 // assuming front-end application is running on localhost port 3000
-const whitelist = ["http://localhost:5000", "http://localhost:3000"];
+// const whitelist = ["http://localhost:5000", "http://localhost:3000"];
+const allowedOrigins = require("./allowedOrigins");
 
 const corsOptions = {
   origin: (origin, callback) => {
     // if (!origin || origin === "http://localhost:5000") {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       // [not]origin must be removed on production mode
       callback(null, true);
     } else {

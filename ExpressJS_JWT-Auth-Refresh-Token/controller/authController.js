@@ -38,25 +38,35 @@ const handleLogin = async (req, res) => {
     const refreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.AUTH_REFRESH_TOKEN_SECRET,
-      { expiresIn: AUTH_REFRESH_TOKEN_EXPIRY }
+      { expiresIn: process.env.AUTH_REFRESH_TOKEN_EXPIRY }
     );
+
+    const currentUser = { ...foundUser, refreshToken };
 
     const otherUsers = usersDB.users.filter(
       (account) => account.username !== foundUser.username
     );
 
-    const currentUser = { ...foundUser, refreshToken };
-
     usersDB.setUsers([...otherUsers, currentUser]);
+
     await fsPromises.writeFile(
-      path(__dirname, "..", "model", "users.json"),
+      path.join(__dirname, "..", "model", "users.json"),
       JSON.stringify(usersDB.users)
     );
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 24,
+    });
 
     res.status(200).json({
       Message: "Login successful.",
       User: `User '${username}' is logged in!`,
+      accessToken: accessToken,
     });
+    //
   } else {
     res.status(401).json({
       message: "Invalid username or password.",

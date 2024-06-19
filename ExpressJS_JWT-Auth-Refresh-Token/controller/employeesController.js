@@ -1,7 +1,9 @@
 const { v4: uuid } = require("uuid");
+const fsPromises = require("fs").promises;
+const path = require("path");
 
 const data = {
-  employees: [],
+  employees: require("../model/employees.json"),
   setEmployees: function (newEmployee) {
     this.employees = newEmployee;
     // this.employees = [...this.employees, newEmployee];
@@ -13,7 +15,7 @@ const getAllEmployees = (req, res) => {
   res.status(200).json(data.employees);
 };
 
-const createNewEmployee = (req, res) => {
+const createNewEmployee = async (req, res) => {
   const newEmployee = {
     id: uuid(),
     firstName: req.body.firstName,
@@ -28,6 +30,12 @@ const createNewEmployee = (req, res) => {
 
   data.setEmployees([...data.employees, newEmployee]);
   // data.setEmployees(newEmployee);
+
+  await fsPromises.writeFile(
+    path.join(__dirname, "..", "model", "employees.json"),
+    JSON.stringify(data.employees)
+  );
+
   res.status(201).json({ status: "Success", employees: data.employees });
 };
 
