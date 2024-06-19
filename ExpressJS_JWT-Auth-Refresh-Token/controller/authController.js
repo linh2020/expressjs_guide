@@ -1,4 +1,8 @@
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const fsPromises = require("fs").promises;
+const path = require("path");
 
 const usersDB = {
   users: require("../model/users.json"),
@@ -24,15 +28,40 @@ const handleLogin = async (req, res) => {
     });
 
   const matchUser = await bcrypt.compare(pwd, foundUser.pwd);
-  if (matchUser)
+  if (matchUser) {
+    const accessToken = jwt.sign(
+      { username: foundUser.username },
+      process.env.AUTH_ACCESS_TOKEN_SECRET,
+      { expiresIn: process.env.AUTH_ACCESS_TOKEN_EXPIRY }
+    );
+
+    const refreshToken = jwt.sign(
+      { username: foundUser.username },
+      process.env.AUTH_REFRESH_TOKEN_SECRET,
+      { expiresIn: AUTH_REFRESH_TOKEN_EXPIRY }
+    );
+
+    const otherUsers = usersDB.users.filter(
+      (account) => account.username !== foundUser.username
+    );
+
+    const currentUser = { ...foundUser, refreshToken };
+
+    usersDB.setUsers([...otherUsers, currentUser]);
+    await fsPromises.writeFile(
+      path(__dirname, "..", "model", "users.json"),
+      JSON.stringify(usersDB.users)
+    );
+
     res.status(200).json({
       Message: "Login successful.",
       User: `User '${username}' is logged in!`,
     });
-  else
+  } else {
     res.status(401).json({
       message: "Invalid username or password.",
     });
+  }
 };
 
 module.exports = { handleLogin };
