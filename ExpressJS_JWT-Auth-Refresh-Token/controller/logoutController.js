@@ -83,7 +83,6 @@ const clearRefreshTokenCookie = (res) => {
     secure: true,
     maxAge: 1000 * 60 * 60 * 24,
   });
-
   res.status(204).json({
     message: "Cookies cleared. You have been logged out successfully.",
   });
@@ -119,4 +118,4 @@ const handleLogout = async (req, res) => {
   clearRefreshTokenCookie(res);
 };
 
-module.exports = handleLogout;
+module.exports = { handleLogout };
