@@ -2,14 +2,15 @@ require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
+
 const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 
 const app = express();
 
 // Middleware
-const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
+const verifyJWT = require("./middleware/verifyJWT");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const credentials = require("./middleware/credentials");
@@ -44,11 +45,11 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 // Routes
 app.use("/", rootRouter);
 app.use("/register", registerRouter);
-app.use("/auth", authRouter);
+app.use("/auth", authRouter); // auth, login
 app.use("/refresh", refreshRouter);
 app.use("/logout", logoutRouter);
 
-app.use(verifyJWT);
+app.use(verifyJWT); // Access token
 app.use("/employees", employeesRouter);
 
 app.all("*", (req, res) => {

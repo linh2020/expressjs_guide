@@ -10,8 +10,8 @@ const usersDB = {
 
 const handleRefreshToken = (req, res) => {
   const cookies = req.cookies;
-  //   console.log("refreshToken: ", cookies.refreshToken);
-  console.log("cookies: ", cookies);
+  // console.log("refreshToken: ", cookies.refreshToken);
+  // console.log("cookies: ", cookies);
 
   if (!cookies?.refreshToken)
     return res.status(401).json({

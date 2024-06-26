@@ -1,13 +1,13 @@
+const fsPromises = require("fs").promises;
+const path = require("path");
+const bcrypt = require("bcrypt");
+
 const usersDB = {
   users: require("../model/users.json"),
   setUsers: function (newUser) {
     this.users = newUser;
   },
 };
-
-const fsPromises = require("fs").promises;
-const path = require("path");
-const bcrypt = require("bcrypt");
 
 const handleNewUser = async (req, res) => {
   const { username, pwd } = req.body;
@@ -28,7 +28,9 @@ const handleNewUser = async (req, res) => {
   try {
     const hashedPwd = await bcrypt.hash(pwd, 10);
     const newUser = { username: username, pwd: hashedPwd };
+
     usersDB.setUsers([...usersDB.users, newUser]);
+
     await fsPromises.writeFile(
       path.join(__dirname, "..", "model", "users.json"),
       JSON.stringify(usersDB.users)
