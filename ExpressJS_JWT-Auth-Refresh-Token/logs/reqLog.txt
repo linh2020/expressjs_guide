@@ -795,3 +795,10 @@
 20240625	18:38:27	f7c036d1-b69a-4eb8-aab6-89f813c7712c	GET	undefined	/employees
 20240625	18:38:51	6f201ea6-7b17-450f-9608-b92d652b0df9	GET	undefined	/logout
 20240625	18:39:06	a60ffae8-deff-479d-9d60-25738c6bbbe6	GET	undefined	/employees
+20240625	21:50:02	e91128f7-5cd2-427d-ad16-88941757012e	GET	undefined	/employees
+20240625	21:50:09	5693c817-4283-4ed2-9370-676499dafc5e	GET	undefined	/employees
+20240625	21:50:31	82c9112e-75a4-453d-b76e-31e0bc759051	GET	undefined	/employees
+20240625	21:50:54	ef8f3323-ff81-424d-9d71-d56a23e95bee	POST	undefined	/auth
+20240625	21:51:01	dc34212d-4e75-4dc0-8ae7-c7b1900911e8	GET	undefined	/employees
+20240626	23:18:02	bec67338-1215-46fe-a931-1c79353e6ca1	GET	undefined	/
+20240626	23:18:02	18f65575-c2dc-47e2-87cc-56b8b65d66d8	GET	undefined	/favicon.ico

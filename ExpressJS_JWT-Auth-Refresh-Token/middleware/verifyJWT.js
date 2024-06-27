@@ -11,6 +11,7 @@ const verifyJWT = (req, res, next) => {
   console.log(authHeader); // Bearer token
 
   const foundAccessToken = authHeader.split(" ")[1];
+  
   jwt.verify(
     foundAccessToken,
     process.env.AUTH_ACCESS_TOKEN_SECRET,
