@@ -12,8 +12,8 @@ const usersDB = {
 };
 
 const handleLogin = async (req, res) => {
-  const { username, pwd } = req.body;
-  if (!username || !pwd)
+  const { username, password } = req.body;
+  if (!username || !password)
     return res.status(400).json({
       message: "Username and password are required.",
     });
@@ -27,11 +27,18 @@ const handleLogin = async (req, res) => {
       Message: "Unauthorized access. Please log in with valid credentials.",
     });
 
-  const matchUser = await bcrypt.compare(pwd, foundUser.pwd);
-  
+  const matchUser = await bcrypt.compare(password, foundUser.password);
+
   if (matchUser) {
+    const roles = Object.values(foundUser.roles);
+
     const accessToken = jwt.sign(
-      { username: foundUser.username },
+      {
+        UserInfo: {
+          username: foundUser.username,
+          roles: roles,
+        },
+      },
       process.env.AUTH_ACCESS_TOKEN_SECRET,
       { expiresIn: process.env.AUTH_ACCESS_TOKEN_EXPIRY }
     );

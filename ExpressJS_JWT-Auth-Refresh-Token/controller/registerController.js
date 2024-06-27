@@ -10,8 +10,8 @@ const usersDB = {
 };
 
 const handleNewUser = async (req, res) => {
-  const { username, pwd } = req.body;
-  if (!username || !pwd)
+  const { username, password } = req.body;
+  if (!username || !password)
     return res.status(400).json({
       message: "Username and password are required.",
     });
@@ -26,8 +26,12 @@ const handleNewUser = async (req, res) => {
     });
 
   try {
-    const hashedPwd = await bcrypt.hash(pwd, 10);
-    const newUser = { username: username, pwd: hashedPwd };
+    const hashedPwd = await bcrypt.hash(password, 10);
+    const newUser = {
+      username: username,
+      roles: { User: 2001 },
+      password: hashedPwd,
+    };
 
     usersDB.setUsers([...usersDB.users, newUser]);
 
