@@ -1,12 +1,17 @@
 require("dotenv").config();
 
 const express = require("express");
+const mongoose = require("mongoose");
+const connectDB = require("./config/dbConn");
 const path = require("path");
 
 const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 
 const app = express();
+
+// Connect to MongoDB
+connectDB();
 
 // Middleware
 const cookieParser = require("cookie-parser");
@@ -59,6 +64,10 @@ app.all("*", (req, res) => {
 // Error handler middleware
 app.use(errorHandler);
 
-app.listen(PORT, () =>
-  console.log(`Express server is listening on port ${PORT}`)
-);
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+
+  app.listen(PORT, () =>
+    console.log(`Express server is listening on port ${PORT}`)
+  );
+});
