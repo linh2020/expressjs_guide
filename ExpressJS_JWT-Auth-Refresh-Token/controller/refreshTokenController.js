@@ -39,7 +39,9 @@ const handleRefreshToken = (req, res) => {
           message: "Access forbidden. Invalid refresh token. 2",
         });
 
-      const roles = Object.values(foundUser.roles);
+      const roles = Object.values(foundUser.roles); // [2001, 1984, 5150]
+
+      // provide a new access-token
       const accessToken = jwt.sign(
         {
           UserInfo: {
@@ -50,6 +52,7 @@ const handleRefreshToken = (req, res) => {
         process.env.AUTH_ACCESS_TOKEN_SECRET,
         { expiresIn: process.env.AUTH_ACCESS_TOKEN_EXPIRY }
       );
+
       res.status(200).json({
         accessToken: accessToken,
       });

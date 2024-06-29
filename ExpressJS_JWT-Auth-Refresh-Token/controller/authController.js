@@ -30,7 +30,8 @@ const handleLogin = async (req, res) => {
   const matchUser = await bcrypt.compare(password, foundUser.password);
 
   if (matchUser) {
-    const roles = Object.values(foundUser.roles);
+    const roles = Object.values(foundUser.roles); // [2001, 1984, 5150]
+    // console.log("roles: ", roles);
 
     const accessToken = jwt.sign(
       {
