@@ -900,3 +900,5 @@
 20240629	01:18:27	4fa7078b-c2ad-4b89-8820-8e0d1ff72c98	POST	undefined	/employees
 20240629	01:18:29	cd357627-09f5-42a8-b58e-c057bbac553d	POST	undefined	/employees
 20240629	01:18:56	175df269-2fce-48f8-a2d1-736fa574c87f	POST	undefined	/employees
+20240703	23:54:38	55f408c8-c414-4254-93dc-ba88d4c69df2	GET	undefined	/
+20240703	23:54:38	64230a9f-1c7e-4053-af05-cdb5cf103f91	GET	undefined	/favicon.ico
